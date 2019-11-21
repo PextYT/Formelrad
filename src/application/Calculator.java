@@ -2,8 +2,8 @@ package application;
 
 /**
  * Berechnet das Formelrad
- * @author Peter Rutschmann
- * @version 13.09.2018
+ * @author Merlin Stocker + Luca Fahrni
+ * @version 21.11.2019
  */
 public class Calculator {
 	private double leistung;
@@ -44,12 +44,26 @@ public class Calculator {
 	}
 
 	public void calculate() {
-		/* Hier auf Grund der vorhanden Werte entscheiden
-		 * welche Methode unten aufgerufen werden muss.
-		 */
+		this.leistung = pAusUundI(spannung, strom);
+		this.leistung = pAusRUndI(widerstand, strom);
+		this.leistung = pAusUUndR(spannung, widerstand);
 	}
-	
-	/* Hier die Methoden mit den Formlen hinzufügen
-	 */
-	
+
+
+	public double pAusUundI(double u, double i) {
+		double p = u*i;
+		return p;
+	}
+
+	public double pAusRUndI(double r, double i) {
+		double p = i * i * r;
+		return p;
+	}
+
+	public double pAusUUndR(double u, double r) {
+		double p = u * u / r;
+		return p;
+	}
+
+
 }
